@@ -1,0 +1,17 @@
+[33mcommit b825f353774307f8dc5218b5c5fe998aa5beec73[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: cainabb <caina_bratz@hotmail.com>
+Date:   Thu Jan 8 17:18:32 2026 -0300
+
+    Cria uma entidade no banco de dados apartir do NinjaModel
+
+[33mcommit f681bf24fccd52e5287959592d9f395a1a0ed85f[m
+Author: cainabb <caina_bratz@hotmail.com>
+Date:   Thu Jan 8 16:19:07 2026 -0300
+
+    Criando a Controller
+
+[33mcommit a2da5966faac2b49b2ee5dfcd239e42b9192b7d7[m
+Author: cainabb <caina_bratz@hotmail.com>
+Date:   Thu Jan 8 14:46:42 2026 -0300
+
+    first commit
