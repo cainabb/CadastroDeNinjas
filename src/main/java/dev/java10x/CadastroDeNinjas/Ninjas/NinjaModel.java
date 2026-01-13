@@ -16,8 +16,11 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
+    @Column(name="nome_ninja")
     private String nome;
+    @Column(name="idade_ninja")
     private int idade;
     @Column(unique = true)//CADA EMAIL TEM QUE SER ÚNICO, NÃO PODE TER 2 IGUAIS
     private String email;
