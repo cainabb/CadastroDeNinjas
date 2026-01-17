@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaController;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
@@ -24,6 +25,7 @@ public class MissoesModel {
     private String dificuldade;
 
     @OneToMany (mappedBy = "missoes") //ONE MISSÕES PARA MANY NINJAS
+    @JsonIgnore //FAZ NAO DAR O ERRO DO LOOP NO BANCO DE DADOS
     private List<NinjaModel> ninjas;
 
 
