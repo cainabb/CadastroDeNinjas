@@ -8,6 +8,7 @@ import java.util.Optional;
 
  @Service
 public class NinjaService {
+
     private NinjaRepository ninjaRepository;
 
     //AQUI É A INJEÇÃO DE DEPEDENCIA, É PADRÃO FAZER POR CONSTRUTOR E NÃO PELO @DATA
