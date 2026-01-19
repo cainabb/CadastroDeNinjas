@@ -36,9 +36,11 @@ public class NinjaController {
 
 
     // PROCURAR NINJA POR ID - CREATE
-    @GetMapping("/todosID")
-    public String MostrarTodosOsNinjasPorID(){
-        return "Mostar todos os ninjas por ID";
+    //http://localhost:8080/listar/2 --> o 2 foi um exemplo
+    @GetMapping("/listar/{id}")
+    //@PathVariable faz com que a URL do site seja passada pelo usuário, Path Caminho, Variable Variável
+    public NinjaModel listarNinjasPorId(@PathVariable Long id){
+        return ninjaService.listarNinjasPorId(id);
     }
 
     // ALTERAR DADOS DO NINJA - UPDATE
