@@ -23,13 +23,15 @@ public class NinjaController {
 
 
     //ADICIONAR NINJA - CREATE
-    @PostMapping("/criar")
-    public String criarninja (){
-        return "Ninja Criado";
+    @PostMapping("/ninjas/criar")
+    //@RequestBody
+    public NinjaModel criarNinja (@RequestBody NinjaModel ninja){
+        return ninjaService.criarNinja(ninja);
+
     }
 
     // MOSTRAR TODOS OS NINJAS - READ
-    @GetMapping("/listar")
+    @GetMapping("/ninjas/listar")
     public List<NinjaModel> listarNinjas(){
         return ninjaService.listarNinjas();
     }
@@ -37,7 +39,7 @@ public class NinjaController {
 
     // PROCURAR NINJA POR ID - CREATE
     //http://localhost:8080/listar/2 --> o 2 foi um exemplo
-    @GetMapping("/listar/{id}")
+    @GetMapping("/ninjas/listar/{id}")
     //@PathVariable faz com que a URL do site seja passada pelo usuário, Path Caminho, Variable Variável
     public NinjaModel listarNinjasPorId(@PathVariable Long id){
         return ninjaService.listarNinjasPorId(id);

@@ -14,10 +14,12 @@ public class NinjaService {
         this.ninjaRepository = ninjaRepository;
     }
 
+    //LISTAR TODOS OS NINJA
     public List<NinjaModel> listarNinjas(){
     return  ninjaRepository.findAll();
     }
 
+    //LISTAR NINJAS POR ID
     public NinjaModel listarNinjasPorId(Long id){
         //USO O OPTIONAL PQ PODE OU NÃO HAVER UM NINJA COM AQUELE ID
         Optional<NinjaModel> ninjaPorId= ninjaRepository.findById(id);
@@ -27,7 +29,15 @@ public class NinjaService {
 
     }
 
+    //CRIAR UM NOVO NINJA
+     //AO INVES DO METÓDO SER, LONG ID, STRING NOME, STRING EMAIL E ETC, PASSO LOGO TUDO O QUE TEM NO
+     //NinjaModel para o usuário preencher
+     public NinjaModel criarNinja(NinjaModel ninja){
+        //O QUE O JPA ESTÁ FAZENDO AQUI É A QUERY NO BANCO DE DADOS ASSIM:
+         //VALUES (ID,'nome','email'...) ATRAVÉS DO ninja QUE O USUÁRIO PASSOU
+        return ninjaRepository.save(ninja);
 
+     }
 
 
 
