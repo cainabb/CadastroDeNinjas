@@ -1,5 +1,6 @@
  package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import org.hibernate.tuple.PropertyFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
@@ -44,6 +45,16 @@ public class NinjaService {
      //DELETAR UM NINJA - tem que ser um método VOID
      public void deletarNinjaPorID(Long ID){
        ninjaRepository.deleteById(ID);
+     }
+
+     //ATUALIZAR NINJA
+     public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado){
+        if (ninjaRepository.existsById(id)){
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null;
+
      }
 
 
