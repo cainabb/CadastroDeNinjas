@@ -24,6 +24,8 @@ public class NinjaModel {
     private int idade;
     @Column(unique = true)//CADA EMAIL TEM QUE SER ÚNICO, NÃO PODE TER 2 IGUAIS
     private String email;
+    @Column(name="rank")
+    private String rank;
 
     @ManyToOne /*UM NINJA TEM UMA ÚNICA MISSÃO, MANY NINJAS TEM ONE MISSION*/
     @JoinColumn(name="missoes_id") //Foreing Key ou Chave Estrangeira
