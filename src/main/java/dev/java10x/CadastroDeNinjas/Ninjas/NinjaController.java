@@ -35,23 +35,28 @@ public class NinjaController {
 
     // MOSTRAR TODOS OS NINJAS - READ
     @GetMapping("/ninjas/listar")
-    public List<NinjaModel> listarNinjas(){
-        return ninjaService.listarNinjas();
+    public ResponseEntity<List<NinjaModel>> listarNinjas(){
+        return ResponseEntity.ok(ninjaService.listarNinjas());
     }
-
 
     // PROCURAR NINJA POR ID - CREATE
     //http://localhost:8080/listar/2 --> o 2 foi um exemplo
     @GetMapping("/ninjas/listar/{id}")
     //@PathVariable faz com que a URL do site seja passada pelo usuário, Path Caminho, Variable Variável
-    public NinjaModel listarNinjasPorId(@PathVariable Long id){
-        return ninjaService.listarNinjasPorId(id);
+    public ResponseEntity<NinjaModel>listarNinjasPorId(@PathVariable Long id){
+        return ResponseEntity.ok(ninjaService.listarNinjasPorId(id));
     }
 
     // ALTERAR DADOS DO NINJA - UPDATE
-    @PutMapping("/ninjas/alterar")
-    public NinjaModel alterarNinjasPorID(){
-        return alterarNinjasPorID();
+    @PutMapping("/ninjas/alterar/{id}")
+    public ResponseEntity<String> alterarNinjasPorID(@PathVariable long id, @RequestBody NinjaModel ninjaAtualizado){
+        NinjaModel ninja = ninjaService.atualizarNinja(id, ninjaAtualizado);
+
+        if (ninja== null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ninja Não Encontrado");
+
+        }
+        return ResponseEntity.ok("O ninja "+ninja.getNome()+" foi alterado");
     }
 
     // DELETAR NINJA - DELETE
